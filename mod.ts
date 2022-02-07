@@ -1,1 +1,1 @@
-export * as logger_util from './util/logger.ts';
+export * as util$logger_ts from './util/logger.ts';

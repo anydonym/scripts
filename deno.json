@@ -1,30 +1,25 @@
 {
+	"$schema": "https://cdn.deno.land/deno/versions/v1.18.2/raw/cli/schemas/config-file.v1.json",
 	"lint": {
 		"files": {
-			"include": ["impl/", "mods/", "util/"]
+			"include": ["impl/", "util/"]
 		},
-
 		"rules": {
-			"exclude": ["require-await"]
+			"include": ["no-eval", "no-array-constructor", "explicit-function-return-type", "camelCase"]
 		}
 	},
 
 	"fmt": {
 		"files": {
-			"include": [
-				"./deno.json",
-				"./mod.ts",
-				"impl/",
-				"mods/",
-				"util/"
-			]
+			"include": ["./mod.ts", "./deno.json", "util/", "impl/"]
 		},
 
 		"options": {
 			"useTabs": true,
-			"lineWidth": 100,
+			"lineWidth": 120,
 			"indentWidth": 2,
-			"singleQuote": true
+			"singleQuote": true,
+			"proseWrap": "preserve"
 		}
 	}
 }
