@@ -45,9 +45,9 @@ export default class Logger {
 			console.log(string);
 		} else if (Deno) {
 			if (type == 'output') {
-				Deno.stdout.writeSync(new TextEncoder().encode(string + '\n'));
+				Deno.stdout.write(new TextEncoder().encode(string + '\n'));
 			} else if (type == 'error') {
-				Deno.stderr.writeSync(new TextEncoder().encode(string + '\n'));
+				Deno.stderr.write(new TextEncoder().encode(string + '\n'));
 			}
 		}
 	}
@@ -55,7 +55,7 @@ export default class Logger {
 	#build(level: string) {
 		return `${colors.dim(`[${new Date().toISOString()}]`)} ${
 			colors.bold(this.options.name ? this.options.name + ' ' : '')
-		} ${level} » `;
+		} ${level} | `;
 	}
 
 	log<Level extends keyof typeof this.options.levels>(logging_level: Level, ...output: any[]) {
@@ -68,6 +68,8 @@ export default class Logger {
 			level.type,
 		);
 	}
+
+	colors = colors;
 }
 
 export interface LoggerOptions {
