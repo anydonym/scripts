@@ -1,0 +1,30 @@
+{
+	"lint": {
+		"files": {
+			"include": ["impl/", "mods/", "util/"]
+		},
+
+		"rules": {
+			"exclude": ["require-await"]
+		}
+	},
+
+	"fmt": {
+		"files": {
+			"include": [
+				"./deno.json",
+				"./mod.ts",
+				"impl/",
+				"mods/",
+				"util/"
+			]
+		},
+
+		"options": {
+			"useTabs": true,
+			"lineWidth": 100,
+			"indentWidth": 2,
+			"singleQuote": true
+		}
+	}
+}
